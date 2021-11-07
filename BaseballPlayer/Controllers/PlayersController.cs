@@ -9,11 +9,11 @@ namespace CretaceousPark.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class AnimalsController : ControllerBase
+  public class PlayersController : ControllerBase
   {
     private readonly BaseballPlayerContext _db;
 
-    public AnimalsController(BaseballPlayerContext db)
+    public PlayersController(BaseballPlayerContext db)
     {
       _db = db;
     }
