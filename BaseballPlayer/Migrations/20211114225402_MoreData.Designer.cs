@@ -2,14 +2,16 @@
 using BaseballPlayer.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BaseballPlayer.Migrations
 {
     [DbContext(typeof(BaseballPlayerContext))]
-    partial class BaseballPlayerContextModelSnapshot : ModelSnapshot
+    [Migration("20211114225402_MoreData")]
+    partial class MoreData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

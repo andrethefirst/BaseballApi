@@ -2,14 +2,16 @@
 using BaseballPlayer.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BaseballPlayer.Migrations
 {
     [DbContext(typeof(BaseballPlayerContext))]
-    partial class BaseballPlayerContextModelSnapshot : ModelSnapshot
+    [Migration("20211114195122_UrlQuery")]
+    partial class UrlQuery
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,22 +56,6 @@ namespace BaseballPlayer.Migrations
                             Name = "Freddie Freeman",
                             Position = "1B",
                             Team = "Braves"
-                        },
-                        new
-                        {
-                            PlayerId = 3,
-                            JerseyNumber = 34,
-                            Name = "Cliff Lee",
-                            Position = "Pitcher",
-                            Team = "Phillies"
-                        },
-                        new
-                        {
-                            PlayerId = 4,
-                            JerseyNumber = 27,
-                            Name = "Vladimir Guerrero",
-                            Position = "CF",
-                            Team = "Angels"
                         });
                 });
 #pragma warning restore 612, 618

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andal\\OneDrive\\Desktop\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj": {}
+    "C:\\Users\\Andal\\OneDrive\\Desktop\\Epicodus\\.Net C#\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andal\\OneDrive\\Desktop\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj": {
+    "C:\\Users\\Andal\\OneDrive\\Desktop\\Epicodus\\.Net C#\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andal\\OneDrive\\Desktop\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj",
+        "projectUniqueName": "C:\\Users\\Andal\\OneDrive\\Desktop\\Epicodus\\.Net C#\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj",
         "projectName": "BaseballPlayer",
-        "projectPath": "C:\\Users\\Andal\\OneDrive\\Desktop\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj",
+        "projectPath": "C:\\Users\\Andal\\OneDrive\\Desktop\\Epicodus\\.Net C#\\BaseballApi.Solution\\BaseballPlayer\\BaseballPlayer.csproj",
         "packagesPath": "C:\\Users\\Andal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andal\\OneDrive\\Desktop\\BaseballApi.Solution\\BaseballPlayer\\obj\\",
+        "outputPath": "C:\\Users\\Andal\\OneDrive\\Desktop\\Epicodus\\.Net C#\\BaseballApi.Solution\\BaseballPlayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Andal\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -54,7 +54,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.2.3, )"
             }
           },
           "imports": [

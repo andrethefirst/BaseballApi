@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using BaseballPlayer.Models;
 using System.Linq;
 
-namespace CretaceousPark.Controllers
+namespace BaseballPlayer.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
@@ -20,7 +20,7 @@ namespace CretaceousPark.Controllers
 
     // GET api/players
     [HttpGet]
-    public ActionResult<IEnumerable<Player>> Get(string position, string team, string name)
+    public async Task <ActionResult<PaginationModel>> Get(string position, string team, string name, int page, int perPage)
     {
       var query = _db.Players.AsQueryable();
       if (position != null)
@@ -35,7 +35,33 @@ namespace CretaceousPark.Controllers
       {
         query = query.Where(entry => entry.Name == name);
       }
-      return query.ToList();
+
+      List<Player> players = await query.ToListAsync();
+
+      if (perPage == 0) perPage = 3;
+
+      int total = players.Count;
+      List<Player> playerPage = new List<Player>();
+      
+      if(page < (total / perPage))
+      {
+        playerPage = players.GetRange(page * perPage, perPage);
+      }
+
+      if (page == (total/perPage))
+      {
+        playerPage = players.GetRange(page * perPage, total - (page * perPage));
+      }
+
+      return new PaginationModel()
+      {
+        Data = playerPage,
+        Total = total,
+        PerPage = perPage,
+        Page = page,
+        PreviousPage = page == 0 ? "No previous page" : $"/api/players?page={page - 1}&perPage={perPage}",
+        NextPage = page == total/perPage ? "No next page" : $"/api/players?page={page + 1}&perPage={perPage}"
+      };
     }
 
     // POST api/players
@@ -110,5 +136,37 @@ namespace CretaceousPark.Controllers
     {
       return _db.Players.Any(e => e.PlayerId == id);
     }
+
+    // [HttpGet]
+    // public IActionResult GetPlayers([FromQuery] UrlQuery urlQuery)
+    // {
+    //   IEnumerable<Player> players = null;
+
+      
+ 
+        
+    //     string sql = @"SELECT PlayerId, JerseyNumber, Name, Team FROM Player";
+
+    //     if(urlQuery.PageNumber.HasValue)
+    //     {
+    //       sql += @" ORDER BY Player.PlayerPK
+    //         OFFSET @PageSize * (@PageNumber -1) ROWS
+    //         FETCH NEXT @PageSize ROWS ONLY";
+    //     }
+    //     players = _db.Players.Query<Player>(sql, urlQuery);
+      
+
+    //   return Ok(players);
+    // }
+    //       [HttpGet]
+    // public ActionResult<IEnumerable<Player>> Get(UrlQuery urlQuery) // [FromQuery]
+    // {
+    //   var query = _db.UrlQuerys.AsQueryable();
+    //   if (pageNumber !=null)
+    //   {
+    //     query = query.Where(entry => entry.PageNumber == PageNumber);
+    //   }
+    //   return query.ToList();
+    // } 
   }
 }
