@@ -7,5 +7,6 @@ namespace BaseballPlayer.Models
     public string Name { get; set; }
     public string Team { get; set; }
     public string Position { get; set; }
+    
   }
 }
